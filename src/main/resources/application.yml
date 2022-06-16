@@ -1,0 +1,26 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /product-service
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: mappings
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product-service
+    username: postgres
+    password: mike
+    type: com.zaxxer.hikari.HikariDataSource
+
