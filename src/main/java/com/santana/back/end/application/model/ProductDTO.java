@@ -20,7 +20,7 @@ public class ProductDTO {
     @NotBlank
     private String productIdentifier;
     @NotNull
-    private CategoryDTO category;
+    private CategoryDTO categoryDTO;
 
     public static ProductDTO convert(Product product){
         ProductDTO productDTO = new ProductDTO();
@@ -29,6 +29,9 @@ public class ProductDTO {
         productDTO.setPreco(product.getPreco());
         productDTO.setDescricao(product.getDescricao());
         productDTO.setProductIdentifier(product.getProductIdentifier());
+        if(product.getCategory() != null){
+            productDTO.setCategoryDTO(CategoryDTO.convert((Category) product.getCategory()));
+        }
 
         return productDTO;
     }

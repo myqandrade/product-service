@@ -30,6 +30,10 @@ public class Product {
         product.setPreco(productDTO.getPreco());
         product.setDescricao(productDTO.getDescricao());
         product.setProductIdentifier(productDTO.getProductIdentifier());
+        if(productDTO.getCategoryDTO() != null){
+            product.setCategory((Category) com.santana.back.end.application.model.Category.convert
+                    (productDTO.getCategoryDTO()));
+        }
 
         return product;
     }
